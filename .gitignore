@@ -24,7 +24,6 @@ data/
 input/
 
 # Streamlit cache
-.streamlit/
 
 # OS
 .DS_Store
