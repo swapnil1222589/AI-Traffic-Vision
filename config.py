@@ -1,9 +1,10 @@
-﻿"""
+"""
 config.py — Central configuration for AI Traffic Vision.
 All tunable parameters live here. Edit this file to customise behaviour.
 """
 
 import os
+import tempfile
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -11,12 +12,23 @@ import os
 BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
 MODELS_DIR = os.path.join(BASE_DIR, "models")
 INPUT_DIR  = os.path.join(BASE_DIR, "input")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-DATA_DIR   = os.path.join(BASE_DIR, "data")
 
-MODEL_PATH       = os.path.join(MODELS_DIR, "yolov8n.pt")
-OUTPUT_VIDEO     = os.path.join(OUTPUT_DIR, "processed.mp4")
-STATS_CSV        = os.path.join(DATA_DIR,   "traffic_data.csv")
+# On Streamlit Cloud the repo is read-only — write outputs to /tmp.
+# Locally (Windows) /tmp doesn't exist so fall back to the project dirs.
+_TMP = tempfile.gettempdir()          # /tmp on Linux cloud, %TEMP% on Windows
+OUTPUT_DIR = os.path.join(_TMP, "ai_traffic_vision", "output")
+DATA_DIR   = os.path.join(_TMP, "ai_traffic_vision", "data")
+
+# Model weights: auto-downloaded by Ultralytics into the models/ folder.
+# On cloud the first run downloads yolov8n.pt into a writable cache dir.
+MODEL_PATH   = os.path.join(MODELS_DIR, "yolov8n.pt")
+OUTPUT_VIDEO = os.path.join(OUTPUT_DIR, "processed.mp4")
+STATS_CSV    = os.path.join(DATA_DIR,   "traffic_data.csv")
+
+# Ensure writable dirs exist at import time
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(DATA_DIR,   exist_ok=True)
+os.makedirs(MODELS_DIR, exist_ok=True)
 
 # ---------------------------------------------------------------------------
 # Detection
