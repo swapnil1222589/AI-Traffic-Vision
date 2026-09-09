@@ -81,11 +81,7 @@ output/processed.mp4  +  data/traffic_data.csv
 > They are NOT scientifically calibrated. Accuracy depends on camera angle, video quality,
 > detection accuracy, and the max-vehicles calibration value.
 > Speed is not estimated — doing so reliably requires camera calibration data.
-
-## GitHub
-
-Source code: [github.com/swapnil1222589/AI-Traffic-Vision](https://github.com/swapnil1222589/AI-Traffic-Vision)
-
+> 
 ## License
 
 MIT License
