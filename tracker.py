@@ -7,7 +7,7 @@ The counter keeps track of unique IDs that have crossed the virtual line.
      
 import numpy as np
 from ultralytics import YOLO
-
+                  
 from config import (
     VEHICLE_CLASSES, DEFAULT_CONF_THRESHOLD, DEFAULT_IOU_THRESHOLD,
     TRACKER_CONFIG, MODEL_PATH, DEFAULT_LINE_Y_RATIO
