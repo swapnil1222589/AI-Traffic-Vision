@@ -4,7 +4,7 @@ tracker.py — Vehicle tracking (ByteTrack via Ultralytics) and line-crossing co
 The tracker uses YOLO`s built-in model.track() which runs ByteTrack internally.
 The counter keeps track of unique IDs that have crossed the virtual line.
 """
-
+     
 import numpy as np
 from ultralytics import YOLO
 
