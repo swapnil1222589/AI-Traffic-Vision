@@ -4,6 +4,8 @@ headless = true
 enableCORS = false
 enableXsrfProtection = false
 
+
+
 [theme]
 base = "dark"
 primaryColor = "#58a6ff"
