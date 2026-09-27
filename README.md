@@ -11,7 +11,7 @@ license: mit
 tags:
   - computer-vision
   - yolov8
-  - object-detection
+  - object-detection  
   - traffic-monitoring
   - streamlit
   - opencv
